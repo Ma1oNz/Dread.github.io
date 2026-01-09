@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiarq Мессенджер</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Боковая панель со списком чатов -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://picsum.photos/seed/user1/40/40.jpg" alt="Avatar">
+                    </div>
+                    <div class="user-info">
+                        <h3>Александр</h3>
+                        <span class="status">online</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button class="btn-icon" id="newChatBtn">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn-icon" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Поиск чатов...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="chat-list" id="chatList">
+                <div class="chat-item active" data-chat-id="1">
+                    <div class="chat-avatar">
+                        <img src="https://picsum.photos/seed/chat1/50/50.jpg" alt="Chat">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <h4>Мария Иванова</h4>
+                            <span class="chat-time">14:30</span>
+                        </div>
+                        <div class="chat-preview">
+                            <p class="last-message">Привет! Как дела?</p>
+                            <span class="unread-count">2</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat-id="2">
+                    <div class="chat-avatar">
+                        <img src="https://picsum.photos/seed/chat2/50/50.jpg" alt="Chat">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <h4>Команда "Разработка"</h4>
+                            <span class="chat-time">12:15</span>
+                        </div>
+                        <div class="chat-preview">
+                            <p class="last-message">Дмитрий: Встреча в 15:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat-id="3">
+                    <div class="chat-avatar">
+                        <img src="https://picsum.photos/seed/chat3/50/50.jpg" alt="Chat">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <h4>Елена Петрова</h4>
+                            <span class="chat-time">Вчера</span>
+                        </div>
+                        <div class="chat-preview">
+                            <p class="last-message">Спасибо за помощь!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Основная область чата -->
+        <div class="chat-area">
+            <div class="chat-header">
+                <div class="chat-contact">
+                    <div class="contact-avatar">
+                        <img src="https://picsum.photos/seed/chat1/40/40.jpg" alt="Contact">
+                    </div>
+                    <div class="contact-info">
+                        <h3>Мария Иванова</h3>
+                        <span class="contact-status">online</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="btn-icon">
+                        <i class="fas fa-phone"></i>
+                    </button>
+                    <button class="btn-icon">
+                        <i class="fas fa-video"></i>
+                    </button>
+                    <button class="btn-icon">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="messages-container" id="messagesContainer">
+                <div class="message-date">
+                    <span>Сегодня</span>
+                </div>
+                
+                <div class="message received">
+                    <div class="message-avatar">
+                        <img src="https://picsum.photos/seed/chat1/30/30.jpg" alt="Avatar">
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">Привет! Как дела?</div>
+                        <div class="message-time">14:30</div>
+                    </div>
+                </div>
+                
+                <div class="message sent">
+                    <div class="message-content">
+                        <div class="message-text">Привет! Отлично, спасибо! У тебя как?</div>
+                        <div class="message-time">14:32</div>
+                    </div>
+                </div>
+                
+                <div class="message received">
+                    <div class="message-avatar">
+                        <img src="https://picsum.photos/seed/chat1/30/30.jpg" alt="Avatar">
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">Тоже хорошо! Готова к завтрашней встрече?</div>
+                        <div class="message-time">14:35</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message-input-container">
+                <div class="input-actions">
+                    <button class="btn-icon">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <button class="btn-icon">
+                        <i class="fas fa-image"></i>
+                    </button>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="messageInput" class="message-input" placeholder="Напишите сообщение...">
+                    <button class="btn-icon emoji-btn">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                </div>
+                <button class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно создания нового чата -->
+    <div class="modal" id="newChatModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Новый чат</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="modal-input" id="newChatName" placeholder="Имя собеседника">
+                <div class="user-suggestions">
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/seed/user2/30/30.jpg" alt="User">
+                        <span>Анна Смирнова</span>
+                    </div>
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/seed/user3/30/30.jpg" alt="User">
+                        <span>Дмитрий Козлов</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelNewChat">Отмена</button>
+                <button class="btn btn-primary" id="createNewChat">Создать</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
